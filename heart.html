@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist with Amazon-style Heart Button</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS for Heart Button -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .wishlist-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            position: relative;
+        }
+
+        .wishlist-item img {
+            max-width: 150px;
+        }
+
+        .wishlist-item h4 {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .wishlist-item p {
+            color: #333;
+        }
+
+        /* Heart button on top right like Amazon */
+        .heart-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #888;
+        }
+
+        .heart-btn .fa-heart {
+            color: #ff6b6b;
+        }
+
+        .heart-btn:hover {
+            color: #ff6b6b;
+        }
+
+        .heart-btn i {
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wishlist-item">
+        <img src="https://via.placeholder.com/150" alt="Item Image">
+        <h4>Product Name</h4>
+        <p>$299</p>
+        <!-- Heart Button -->
+        <button class="heart-btn" onclick="toggleHeart(this)">
+            <i class="fa fa-heart-o"></i>
+        </button>
+    </div>
+
+    <script>
+        function toggleHeart(button) {
+            const heartIcon = button.querySelector('i');
+            heartIcon.classList.toggle('fa-heart-o');
+            heartIcon.classList.toggle('fa-heart');
+        }
+    </script>
+
+</body>
+</html>

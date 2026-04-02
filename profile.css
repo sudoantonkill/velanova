@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+   
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    font-family: 'Orbitron', sans-serif !important;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    padding: 20px;
+    max-width: 600px; /* Max width for the profile box */
+    margin: 50px auto; /* Centered margin */
+    background-color: #111; /* Slightly lighter black for the profile box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle shadow effect */
+}
+/* Profile Header */
+.profile-header h1 {
+    font-size: 2em; /* Larger font for the header */
+    margin-bottom: 20px; /* Space below header */
+    text-align: center; /* Center align text */
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 120px !important ; /* Width of the profile picture */
+    height: 120px !important; /* Height of the profile picture */
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Hide overflow for circular effect */
+    border: 3px solid #fff; /* Optional: white border around the container */
+    display: flex; /* Use flex to center the image */
+    justify-content: center !important; /* Center the image horizontally */
+    align-items: center !important; /* Center the image vertically */
+    margin-bottom: 20px; 
+}
+
+/* Form Styles */
+form {
+    width: 100%; /* Full width */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    gap: 15px; /* Space between form elements */
+}
+
+/* Labels */
+label {
+    font-weight: bold; /* Bold labels */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #444; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #222; /* Dark gray background for input */
+    color: #fff; /* White text in input */
+}
+
+/* Focus State for Input Fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Buttons */
+.save-btn {
+    padding: 10px 20px; /* Padding inside button */
+    color: #fff; /* White text color */
+    background-color: #444; /* Dark gray background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+/* Button Hover Effect */
+.save-btn:hover {
+    background-color: #007bff; /* Blue on hover */
+}
+.profile-container {
+    
+    flex-direction: column;
+    align-items: center; /* Center contents horizontally */
+    padding: 20px;
+}
+
+
+
+.profile-pic {
+    width: 100%; /* Fill the circular container */
+    height: 100%; /* Fill the circular container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;/* Center contents horizontally */
+    padding: 20px;
+}
+
+
+.profile-pic {
+    width: 100%; /* Fill the circular container */
+    height: 100%; /* Fill the circular container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.back-btn {
+    background-color: white; /* Background color */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline if it's an anchor tag */
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Optional: Add hover effect */
+.back-btn:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    color: #000; /* Text color on hover */
+}
+.profile-container {
+    text-align: center; /* Center the text in the container */
+}
+
+.profile-pic-container {
+    display: inline-block; /* Make the container inline-block for centering */
+    margin-bottom: 20px; /* Add some space below the profile picture */
+}
+
+.profile-pic {
+    width: 150px; /* Set a fixed width for the profile picture */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the image circular */
+    border: 2px solid #ccc; /* Optional: Add a border to the image */
+}

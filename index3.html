@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelaNova — Compare Prices Across Amazon, Flipkart & Croma</title>
+    <meta name="description" content="VelaNova helps you find the best deals by comparing product prices across Amazon, Flipkart, and Croma in real-time.">
+    <link rel="stylesheet" href="styles3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="brand-link">
+                    <h1 class="brand">
+                        <span class="brand-icon">⚡</span>VelaNova
+                    </h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <section class="menu-bar">
+                <div class="container">
+                    <a href="#deals" class="menu-button">🔥 Today's Deals</a>
+                    <a href="#brands" class="menu-button">⭐ Best Sellers</a>
+                    <a href="#categories" class="menu-button">🆕 New Releases</a>
+                    <a href="#" class="menu-button">🎁 Gift Ideas</a>
+                    <a href="#contact" class="menu-button">💬 Help</a>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-badge">🔍 Real-time Price Comparison</div>
+            <h1 class="hero-title">Find the <span class="gradient-text">Best Prices</span><br>Across India</h1>
+            <p class="hero-subtitle">Compare prices from Amazon, Flipkart & Croma — instantly.</p>
+            
+            <div class="search-wrapper">
+                <div class="search-form" id="search-form">
+                    <div class="search-input-wrap">
+                        <span class="search-icon">🔎</span>
+                        <input type="text" id="product" placeholder="Search for any product... (e.g., iPhone 15, Samsung TV)" autocomplete="off" />
+                    </div>
+                    <button type="button" id="fetch-button" onclick="fetchPrices()">
+                        <span class="btn-text">Compare Prices</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div>
+                <div class="search-tags">
+                    <span>Popular:</span>
+                    <button class="tag" onclick="quickSearch('iPhone 15')">iPhone 15</button>
+                    <button class="tag" onclick="quickSearch('Samsung Galaxy S24')">Galaxy S24</button>
+                    <button class="tag" onclick="quickSearch('MacBook Air M2')">MacBook Air</button>
+                    <button class="tag" onclick="quickSearch('Sony WH-1000XM5')">Sony Headphones</button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-container" class="results-container" style="display: none;">
+                <div class="results-header">
+                    <h2 id="results-title">Results</h2>
+                    <span id="results-time" class="results-time"></span>
+                </div>
+                <div id="price-results" class="results-grid">
+                    <!-- Results injected by JS -->
+                </div>
+            </div>
+
+            <!-- Loader -->
+            <div id="loader-container" class="loader-container" style="display: none;">
+                <div class="loader-card">
+                    <div class="loader-spinner"></div>
+                    <p class="loader-text">Searching across stores...</p>
+                    <div class="loader-stores">
+                        <span class="store-dot amazon-dot">Amazon</span>
+                        <span class="store-dot flipkart-dot">Flipkart</span>
+                        <span class="store-dot croma-dot">Croma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Deals -->
+    <section class="image-boxes" id="deals">
+        <div class="section-header">
+            <h2 class="section-title">🔥 Featured Deals</h2>
+            <p class="section-desc">Tap any deal to compare prices instantly</p>
+        </div>
+        <div class="boxes-grid">
+            <a href="javascript:void(0)" class="box" onclick="quickSearch('iPhone 15 Pro')">
+                <div class="box-img-wrap">
+                    <img src="iphone.png" alt="iPhone Deals">
+                    <div class="box-badge">Hot Deal</div>
+                </div>
+                <h3>Deals on iPhone</h3>
+                <p class="box-action">Compare prices →</p>
+            </a>
+            <a href="javascript:void(0)" class="box" onclick="quickSearch('Samsung Galaxy S22')">
+                <div class="box-img-wrap">
+                    <img src="sam.png" alt="Samsung S22">
+                    <div class="box-badge">Trending</div>
+                </div>
+                <h3>S22 at Best Price</h3>
+                <p class="box-action">Compare prices →</p>
+            </a>
+            <a href="javascript:void(0)" class="box" onclick="quickSearch('MacBook Air M2')">
+                <div class="box-img-wrap">
+                    <img src="mac.webp" alt="MacBook">
+                </div>
+                <h3>Powerful Macs</h3>
+                <p class="box-action">Compare prices →</p>
+            </a>
+            <a href="javascript:void(0)" class="box" onclick="quickSearch('Apple Watch Series 9')">
+                <div class="box-img-wrap">
+                    <img src="watch.png" alt="Watches">
+                    <div class="box-badge">New</div>
+                </div>
+                <h3>Next-Gen Watches</h3>
+                <p class="box-action">Compare prices →</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+        <div class="slideshow-container">
+            <div class="slide">
+                <a href="https://www.samsung.in" target="_blank">
+                    <img src="slide1.jpeg" alt="Samsung Deals">
+                </a>
+            </div>
+            <div class="slide">
+                <a href="https://www.rolex.com" target="_blank">
+                    <img src="slide2.jpeg" alt="Rolex">
+                </a>
+            </div>
+            <div class="slide">
+                <a href="https://www.victorinox.com" target="_blank">
+                    <img src="slide3.png" alt="Victorinox">
+                </a>
+            </div>
+            <div class="slide">
+                <a href="https://www.levi.in" target="_blank">
+                    <img src="slide4.png" alt="Levi's">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Logos -->
+    <section class="brand-logos-section" id="brands">
+        <h2 class="brand-title">✨ Customer Favorite Brands</h2>
+        <div class="logo-grid">
+            <a href="https://www.levis.com" class="logo-box" target="_blank">
+                <img src="levi.png" alt="Levi's Logo">
+                <label>LEVI'S</label>
+            </a>
+            <a href="https://www.samsung.com" class="logo-box" target="_blank">
+                <img src="sambhai.png" alt="Samsung Logo">
+                <label>Samsung</label>
+            </a>
+            <a href="https://www.apple.com" class="logo-box" target="_blank">
+                <img src="apple.png" alt="Apple Logo">
+                <label>Apple</label>
+            </a>
+            <a href="https://www.lg.com" class="logo-box" target="_blank">
+                <img src="lg.png" alt="LG Logo">
+                <label>LG</label>
+            </a>
+            <a href="https://www.oneplus.in" class="logo-box" target="_blank">
+                <img src="op.png" alt="OnePlus Logo">
+                <label>OnePlus</label>
+            </a>
+            <a href="https://www.haier.com/in" class="logo-box" target="_blank">
+                <img src="haier.png" alt="Haier Logo">
+                <label>Haier</label>
+            </a>
+            <a href="https://www.bluestarindia.com" class="logo-box" target="_blank">
+                <img src="bs.png" alt="BlueStar Logo">
+                <label>BlueStar</label>
+            </a>
+            <a href="https://www.daikinindia.com" class="logo-box" target="_blank">
+                <img src="daikin.png" alt="Daikin Logo">
+                <label>Daikin</label>
+            </a>
+            <a href="#" class="logo-box">
+                <img src="og.png" alt="OGeneral Logo">
+                <label>OGeneral</label>
+            </a>
+        </div>
+    </section>
+
+    <!-- Popular Categories -->
+    <section class="image-blocks container" id="categories">
+        <h2>📦 Popular Categories</h2>
+        <div class="blocks-grid">
+            <div class="block" onclick="quickSearch('electronics')">
+                <img src="videocon-ha.jpg" alt="Electronics">
+                <h3>Electronics</h3>
+            </div>
+            <div class="block" onclick="quickSearch('fashion clothing')">
+                <img src="fashion.jpeg" alt="Fashion">
+                <h3>Fashion</h3>
+            </div>
+            <div class="block" onclick="quickSearch('home appliances')">
+                <img src="home1.jpeg" alt="Home Appliances">
+                <h3>Home Appliances</h3>
+            </div>
+            <div class="block" onclick="quickSearch('deals offers discount')">
+                <img src="sale.png" alt="Hot Deals">
+                <h3>Hot Deals</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2>⚡ VelaNova</h2>
+                    <p>Your smart price comparison companion</p>
+                </div>
+                <p class="footer-copy">&copy; 2024 VelaNova. All rights reserved.</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="company-info">
+                    <h3>Contact Us</h3>
+                    <p>Room no 514, The Ashtavakra Building</p>
+                    <p>Mumbai, Maharashtra - 400022</p>
+                    <p>Email: siddharth.koul@somaiya.edu</p>
+                    <p>Phone: +91 (989) 256-5705</p>
+                </div>
+                <div class="social-media">
+                    <h3>Follow Us</h3>
+                    <a href="https://www.facebook.com/" class="social-icon" target="_blank"><img src="fb.png" alt="Facebook"></a>
+                    <a href="https://x.com/" class="social-icon" target="_blank"><img src="x.webp" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/" class="social-icon" target="_blank"><img src="insta1.png" alt="Instagram"></a>
+                    <a href="https://in.linkedin.com/" class="social-icon" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index3.js"></script>
+</body>
+</html>
